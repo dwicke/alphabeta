@@ -22,7 +22,6 @@ public class AlphaBetaPruning {
         int alpha, beta, value; 
         boolean isMin;// what type of node true if min false if max
         Object state;
-        boolean pruned = false;
         public Node(boolean isMin) {
             this.isMin = isMin;
             alpha = Integer.MAX_VALUE;
@@ -74,7 +73,7 @@ public class AlphaBetaPruning {
     
     private int play() {
         
-        Node curNode = null;
+        Node curNode = new Node(true);// so no null pointer is thrown.
         
         while(!graph.isEmpty()) {
             curNode = graph.pop();
